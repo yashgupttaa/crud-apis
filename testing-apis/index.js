@@ -6,7 +6,12 @@ const cors = require('cors');
 
 // Initialize Express app
 const app = express();
-app.use(cors());
+const corsOptions = {
+    origin: ' * ',  // Replace with your allowed origin
+    optionsSuccessStatus: 200      // Some legacy browsers (IE11, various SmartTVs) choke on 204
+  };
+  
+  app.use(cors(corsOptions));
 
 // Middleware
 app.use(bodyParser.json());
